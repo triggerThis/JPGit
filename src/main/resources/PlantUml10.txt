@@ -1,0 +1,37 @@
+@startuml
+
+object user {
+  name = "Dummy"
+  id = 123
+}
+object user2 {
+  name = "Dummy"
+  id = 123
+}
+
+note "This is a floating note" as N1
+note "This note is connected\nto several objects." as N2
+note as N3
+	@RequestMapping("store")
+	public ModelAndView store( ) throws Exception {
+		
+		cOrderData();
+		
+		////return "messages/view2";
+		//	cOrderData()
+		//		);
+		return new ModelAndView(
+				new RedirectView("messages/view2"), "customer",
+				cOrderData()
+				);
+	}
+end note
+note as N4
+  This note "is" <u>also</u>
+  <b><color:royalBlue>on several</color>
+  <s>words</s> lines
+  And this is hosted by <img:sourceforge.jpg>
+end note
+Object .. N2
+N2 .. ArrayList
+@enduml
